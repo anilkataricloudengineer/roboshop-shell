@@ -3,11 +3,17 @@ app_name=shipping
 
 JAVA
 
-dnf install mysql -y
-mysql -h mysql-dev.anilcloudengineer.online -uroot -pRoboShop@1 < /app/db/schema.sql
-mysql -h mysql-dev.anilcloudengineer.online -uroot -pRoboShop@1 < /app/db/app-user.sql
-mysql -h mysql-dev.anilcloudengineer.online -uroot -pRoboShop@1 < /app/db/master-data.sql
+dnf install mysql -y &>>$log_file
+Status_Print $?
 
-systemctl restart shipping
+mysql -h mysql-dev.anilcloudengineer.online -uroot -pRoboShop@1 < /app/db/schema.sql &>>$log_file
+Status_Print $?
+
+mysql -h mysql-dev.anilcloudengineer.online -uroot -pRoboShop@1 < /app/db/app-user.sql &>>$log_file
+Status_Print $?
+
+mysql -h mysql-dev.anilcloudengineer.online -uroot -pRoboShop@1 < /app/db/master-data.sql &>>$log_file
+Status_Print $?
+
 
 
