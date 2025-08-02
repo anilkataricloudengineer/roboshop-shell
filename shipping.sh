@@ -13,7 +13,7 @@ for file in schema app-user master-data; do
   mysql -h mysql-dev.anilcloudengineer.online -uroot -pRoboShop@1 < /app/db/$file.sql &>>$log_file
   Status_Print $?
 
-done
+dones
 
 
 
