@@ -16,7 +16,6 @@ SYSTEMD_SETUP() {
   cp $dir_path/$app_name.service /etc/systemd/system/$app_name.service &>>$log_file
   Status_Print $?
 
-
   echo Start Application
   systemctl daemon-reload &>>$log_file
   systemctl enable $app_name &>>$log_file
