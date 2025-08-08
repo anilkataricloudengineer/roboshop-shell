@@ -1,4 +1,6 @@
-dnf module disable nginx -y &>>$log_file
+source ./common.sh
+
+dnf module disable nginx -y&>>$log_file
 Status_Print $?
 
 dnf module enable nginx:1.24 -y &>>$log_file
